@@ -1,0 +1,166 @@
+,CompoundName,SMILES,p-value,anti-PGCC label
+0,Docetaxel,CC(=O)O[C@@]12CO[C@@H]1C[C@H](O)[C@@]1(C)C(=O)[C@H](O)C3=C(C)[C@@H](OC(=O)[C@H](O)[C@@H](NC(=O)OC(C)(C)C)c4ccccc4)C[C@@](O)([C@@H](OC(=O)c4ccccc4)[C@H]21)C3(C)C.O,0.5044,0
+1,Actinomycin D,Cc1c2oc3c(C)ccc(C(=O)N[C@@H]4C(=O)N[C@@H](C(C)C)C(=O)N5CCC[C@H]5C(=O)N(C)CC(=O)N(C)[C@@H](C(C)C)C(=O)O[C@@H]4C)c3nc-2c(C(=O)N[C@@H]2C(=O)N[C@@H](C(C)C)C(=O)N3CCC[C@H]3C(=O)N(C)CC(=O)N(C)[C@@H](C(C)C)C(=O)O[C@@H]2C)c(N)c1=O,<0.0001,1
+2,Bortezomib (PS-341),CC(C)CC(NC(=O)C(Cc1ccccc1)NC(=O)c1cnccn1)B(O)O,<0.0001,1
+3,Digoxin,C[C@H]1O[C@@H](O[C@H]2[C@@H](O)C[C@H](O[C@H]3[C@@H](O)C[C@H](O[C@H]4CC[C@@]5(C)[C@H](CC[C@@H]6[C@@H]5C[C@@H](O)[C@]5(C)[C@@H](C7=CC(=O)OC7)CC[C@]65O)C4)O[C@@H]3C)O[C@@H]2C)C[C@H](O)[C@@H]1O,0.001,1
+4,Fulvestrant,C[C@]12CC[C@@H]3c4ccc(O)cc4C[C@@H](CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)[C@H]3[C@@H]1CC[C@@H]2O,0.0066,1
+5,Galunisertib,CC1=NC(=CC=C1)C2=NN3CCCC3=C2C4=C5C=C(C=CC5=NC=C4)C(=O)N,0.162,0
+6,Gemcitabine,Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2(F)F)c(=O)n1,0.2638,0
+7,Pirfenidone,Cc1ccc(=O)n(-c2ccccc2)c1,0.2673,0
+8,Tamoxifen,CC/C(=C(\c1ccccc1)c1ccc(OCCN(C)C)cc1)c1ccccc1,0.1481,0
+9,Valrubicin,CCCCC(=O)OCC(=O)[C@]1(O)Cc2c(O)c3c(c(O)c2[C@@H](O[C@H]2C[C@H](NC(=O)C(F)(F)F)[C@H](O)[C@H](C)O2)C1)C(=O)c1c(OC)cccc1C3=O,0.5305,0
+10,Vorinostat (SAHA),O=C(CCCCCCC(=O)Nc1ccccc1)NO,0.0008,1
+11,Erlotinib ,C#Cc1cccc(Nc2ncnc3cc(OCCOC)c(OCCOC)cc23)c1,0.7783,0
+12,Exemestane,C=C1C[C@@H]2[C@H](CC[C@]3(C)C(=O)CC[C@@H]23)[C@@]2(C)C=CC(=O)C=C12,0.6466,0
+13,Ixabepilone,C/C(=C\c1csc(C)n1)[C@@H]1C[C@@H]2O[C@]2(C)CCC[C@H](C)[C@H](O)[C@@H](C)C(=O)C(C)(C)[C@@H](O)CC(=O)N1,0.5096,0
+14,Lapatinib,CS(=O)(=O)CCNCc1ccc(-c2ccc3ncnc(Nc4ccc(OCc5cccc(F)c5)c(Cl)c4)c3c2)o1,0.6758,0
+15,Paclitaxel,CC(=O)O[C@H]1C(=O)[C@@]2(C)[C@H]([C@H](OC(=O)c3ccccc3)[C@]3(O)C[C@H](OC(=O)[C@H](O)[C@@H](NC(=O)c4ccccc4)c4ccccc4)C(C)=C1C3(C)C)[C@]1(OC(C)=O)CO[C@@H]1C[C@@H]2O,0.6409,0
+16,Romidepsin,C/C=C1\NC(=O)[C@H]2CSSCC/C=C/[C@H](CC(=O)N[C@H](C(C)C)C(=O)N2)OC(=O)[C@H](C(C)C)NC1=O,<0.0001,1
+17,Vinorelbine (tartrate),CCC1=C[C@@H]2C[N@](C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1OC)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@H](OC(C)=O)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2.O=C(O)[C@H](O)[C@@H](O)C(=O)O.O=C(O)[C@H](O)[C@@H](O)C(=O)O,0.7476,0
+18,Cabazitaxel,CO[C@H]1C(=O)[C@]2(C)[C@@H](OC)C[C@H]3OC[C@@]3(OC(C)=O)[C@H]2[C@H](OC(=O)c2ccccc2)[C@]2(O)C[C@H](OC(=O)[C@H](O)[C@@H](NC(=O)OC(C)(C)C)c3ccccc3)C(C)=C1C2(C)C,0.3985,0
+19,Pazopanib ,Cc1ccc(Nc2nccc(N(C)c3ccc4c(C)n(C)nc4c3)n2)cc1S(N)(=O)=O,0.6935,0
+20,SN-38,CCc1c2c(nc3ccc(O)cc13)-c1cc3c(c(=O)n1C2)COC(=O)[C@]3(O)CC,0.0456,1
+21,Afatinib,CN(C)C/C=C/C(=O)Nc1cc2c(Nc3ccc(F)c(Cl)c3)ncnc2cc1O[C@H]1CCOC1,0.2374,0
+22,5-Fluorouracil ,O=c1[nH]cc(F)c(=O)[nH]1,0.3764,0
+23,Talazoparib (BMN 673),Cn1ncnc1C1c2n[nH]c(=O)c3cc(F)cc(c23)NC1c1ccc(F)cc1,0.1929,0
+24,Rotenone (Barbasco),C=C(C)C1Cc2c(ccc3c2OC2COc4cc(OC)c(OC)cc4C2C3=O)O1,0.6758,0
+25,Sodium dichloroacetate (DCA),O=C(O[Na])C(Cl)Cl,0.8343,0
+26,Resibufogenin,C[C@]12CC[C@H](O)C[C@H]1CC[C@@H]1[C@@H]2CC[C@]2(C)[C@@H](c3ccc(=O)oc3)C[C@H]3O[C@]132,0.2743,0
+27,(E/Z)-BCI,[2H]C([2H])([2H])C([2H])([2H])C(=C(c1ccc(O)cc1)c1ccc(OCCN(C)C)cc1)c1ccccc1,0.8406,0
+28,Acetylcysteine (N-acetylcysteine),CC(=O)NC(CS)C(=O)O,0.766,0
+29,Bafilomycin A1 (Baf-A1),CO/C1=C\C(C)=C\[C@@H](C)[C@@H](O)[C@@H](C)C/C(C)=C/C=C/[C@H](OC)[C@@H]([C@@H](C)[C@@H](O)[C@H](C)[C@@]2(O)C[C@@H](O)[C@H](C)[C@@H](C(C)C)O2)OC1=O,0.3034,0
+30,Diphenyleneiodonium chloride (DPI),C1=CC=C2C(=C1)C3=CC=CC=C3[I+]2.[Cl-],0.5571,0
+31,Disulfiram,CCN(CC)C(=S)SSC(=S)N(CC)CC,0.0448,1
+32,SBI-0206965,CNC(=O)c1ccccc1Oc1nc(Nc2cc(OC)c(OC)c(OC)c2)ncc1Br,0.7355,0
+33,MRT68921 HCl,CN1CCc2cc(Nc3ncc(C4CC4)c(NCCCNC(=O)C4CCC4)n3)ccc2C1,0.3427,0
+34,Autophinib,Cc1cc(Nc2cc(Cl)nc(Oc3ccc([N+](=O)[O-])cc3)n2)n[nH]1,0.6876,0
+35,Olaparib (AZD2281),O=C(c1cc(Cc2n[nH]c(=O)c3ccccc23)ccc1F)N1CCN(C(=O)C2CC2)CC1,0.7114,0
+36,Veliparib (ABT-888),C[C@]1(c2nc3c(C(N)=O)cccc3[nH]2)CCCN1.Cl.Cl,0.6124,0
+37,Rucaparib (AG-014699) phosphate,CNCc1ccc(-c2[nH]c3cc(F)cc4c3c2CCNC4=O)cc1.O=P(O)(O)O,0.1796,0
+38,Iniparib (BSI-201),NC(=O)c1ccc(I)c([N+](=O)[O-])c1,0.8659,0
+39,2-Methoxyestradiol (2-MeOE2),COc1cc2c(cc1O)CCC1C2CCC2(C)C(O)CCC12,0.9487,0
+40,Tanespimycin (17-AAG),C=CCNC1=C2C[C@@H](C)C[C@H](OC)[C@H](O)[C@@H](C)/C=C(\C)[C@H](OC(N)=O)[C@@H](OC)/C=C\C=C(/C)C(=O)NC(=CC1=O)C2=O,0.7416,0
+41,MG-132,CC(C)CC(C=O)NC(=O)C(CC(C)C)NC(=O)C(CC(C)C)NC(=O)OCC1=CC=CC=C1,0.0049,1
+42,Carfilzomib (PR-171),CC(C)CC(NC(=O)C(CCc1ccccc1)NC(=O)CN1CCOCC1)C(=O)NC(Cc1ccccc1)C(=O)NC(CC(C)C)C(=O)C1(C)CO1,<0.0001,1
+43,Ixazomib Citrate (MLN9708),CC(C)CC(NC(=O)CNC(=O)c1cc(Cl)ccc1Cl)B1OC(=O)C(CC(=O)O)(CC(=O)O)O1,<0.0001,1
+44,Ixazomib (MLN2238),CC(C)CC(NC(=O)CNC(=O)c1cc(Cl)ccc1Cl)B(O)O,<0.0001,1
+45,Selumetinib (AZD6244),Cn1cnc2c(F)c(Nc3ccc(Br)cc3Cl)c(C(=O)NOCCO)cc21,0.766,0
+46,Mirdametinib (PD0325901),C1=CC(=C(C=C1I)F)NC2=C(C=CC(=C2F)F)C(=O)NOCC(CO)O,0.8659,0
+47,PD184352 (CI-1040),O=C(NOCC1CC1)c1ccc(F)c(F)c1Nc1ccc(I)cc1Cl,0.7721,0
+48,Binimetinib (MEK162),Cn1cnc2c(F)c(Nc3ccc(Br)cc3F)c(C(=O)NOCCO)cc21,0.6758,0
+49,Trametinib (GSK1120212),CC(=O)Nc1cccc(-n2c(=O)n(C3CC3)c(=O)c3c(Nc4ccc(I)cc4F)n(C)c(=O)c(C)c32)c1,0.8031,0
+50,Losmapimod (GW856553X),CC1=C(C=C(C=C1F)C(=O)NC2CC2)C3=NC=C(C=C3)C(=O)NCC(C)(C)C,0.6237,0
+51,VX-702,NC(=O)c1ccc(N(C(N)=O)c2c(F)cccc2F)nc1-c1ccc(F)cc1F,0.904,0
+52,Doramapimod (BIRB 796),Cc1ccc(-n2nc(C(C)(C)C)cc2NC(=O)Nc2ccc(OCCN3CCOCC3)c3ccccc23)cc1,0.7054,0
+53,TAK-715,CCc1nc(-c2cccc(C)c2)c(-c2ccnc(NC(=O)c3ccccc3)c2)s1,0.4594,0
+54,(+)-JQ1,Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=N[C@@H](CC(=O)OC(C)(C)C)c1nnc(C)n1-2,0.0759,0
+55,Molibresib (I-BET-762),CCNC(=O)CC1C2=NN=C(N2C3=C(C=C(C=C3)OC)C(=N1)C4=CC=C(C=C4)Cl)C,0.5148,0
+56,Birabresib (OTX015),Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=N[C@@H](CC(=O)Nc1ccc(O)cc1)c1nnc(C)n1-2,0.9807,0
+57,BI 2536,CC[C@@H]1C(=O)N(C)c2cnc(Nc3ccc(C(=O)NC4CCN(C)CC4)cc3OC)nc2N1C1CCCC1,0.133,0
+58,I-BET151 (GSK1210151A),COc1cc2c(cc1-c1c(C)noc1C)ncc1[nH]c(=O)n([C@H](C)c3ccccn3)c12,0.7054,0
+59,Entinostat (MS-275),Nc1ccccc1NC(=O)c1ccc(CNC(=O)OCc2cccnc2)cc1,0.0603,0
+60,Panobinostat (LBH589),Cc1[nH]c2ccccc2c1CCNCc1ccc(/C=C/C(=O)NO)cc1,0.0013,1
+61,Mocetinostat (MGCD0103),Nc1ccccc1NC(=O)c1ccc(CNc2nccc(-c3cccnc3)n2)cc1,0.3227,0
+62,SB 431542,O=S(=O)([O-])CCCCOCC1OC2OC3=C(CO)OC(OC4C(CO)OC(OC5C(CO)OC(OC6C(CO)OC(OC7C(CO)OC(OC8C(CO)OC(OC1C(O)C2OCCCCS(=O)(=O)[O-])C(O)C8O)C(O)C7O)C(O)C6O)C(O)C5O)C(O)C4O)C(O)C3O.[Na+].[Na+],0.7845,0
+63,Vactosertib,CC1=NC(=CC=C1)C2=C(N=C(N2)CNC3=CC=CC=C3F)C4=CN5C(=NC=N5)C=C4,0.7054,0
+64,Isoxazole 9 (ISX-9),O=C(NC1CC1)c1cc(-c2cccs2)on1,0.3985,0
+65,PD0166285,CCN(CC)CCOC1=CC=C(C=C1)NC2=NC=C3C=C(C(=O)N(C3=N2)C)C4=C(C=CC=C4Cl)Cl,0.0028,1
+66,Adavosertib (MK-1775),C=CCn1c(=O)c2cnc(Nc3ccc(N4CCN(C)CC4)cc3)nc2n1-c1cccc(C(C)(C)O)n1,0.0066,1
+67,Propranolol HCl,CC(C)NCC(O)COc1cccc2ccccc12.Cl,0.8595,0
+68,Timolol Maleate,CC(C)(C)NCC(O)COc1nsnc1N1CCOCC1.O=C(O)/C=C\C(=O)O,0.6582,0
+69,Levobetaxolol HCl,CC(C)NCC(O)COc1ccc(CCOCC2CC2)cc1.Cl,0.8406,0
+70,YM155 (Sepantronium Bromide),CC1=[N+](C2=C(N1CCOC)C(=O)C3=CC=CC=C3C2=O)CC4=NC=CN=C4.[Br-],0.0001,1
+71,Flavokawain A,COc1ccc(/C=C/C(=O)c2c(O)cc(OC)cc2OC)cc1,0.9807,0
+72,XMU-MP-1,CN1C(=O)c2sccc2N(C)c2nc(Nc3ccc(S(N)(=O)=O)cc3)ncc21,0.1458,0
+73,Verteporfin,C=Cc1c(C)c2cc3nc(cc4[nH]c(cc5nc(cc1[nH]2)C(C)=C5CCC(=O)O)c(CCC(=O)OC)c4C)[C@@]1(C)C3=CC=C(C(=O)OC)[C@H]1C(=O)OC,0.568,0
+74,LY2090314,O=C1NC(=O)C(c2cnc3ccccn23)=C1c1cn2c3c(cc(F)cc13)CN(C(=O)N1CCCCC1)CC2,0.2279,0
+75,BIO,O=C1Nc2cc(Br)ccc2/C1=C1/Nc2ccccc2/C1=N\O,0.7174,0
+76,TWS119,Nc1cccc(-c2cc3c(Oc4cccc(O)c4)ncnc3[nH]2)c1,0.6876,0
+77,Palbociclib (PD-0332991) HCl,CC(=O)c1c(C)c2cnc(Nc3ccc(N4CCNCC4)cn3)nc2n(C2CCCC2)c1=O.Cl,0.8976,0
+78,Ribociclib (LEE011),CN(C)C(=O)c1cc2cnc(Nc3ccc(N4CCNCC4)cn3)nc2n1C1CCCC1,0.2188,0
+79,Abemaciclib,CCN1CCN(Cc2ccc(Nc3ncc(F)c(-c4cc(F)c5nc(C)n(C(C)C)c5c4)n3)nc2)CC1.CS(=O)(=O)O,0.1902,0
+80,Navitoclax (ABT-263),CC1(C)CCC(c2ccc(Cl)cc2)=C(CN2CCN(c3ccc(C(=O)NS(=O)(=O)c4ccc(N[C@H](CCN5CCOCC5)CSc5ccccc5)c(S(=O)(=O)C(F)(F)F)c4)cc3)CC2)C1,0.0029,1
+81,Venetoclax (ABT-199),CC1(C)CCC(CN2CCN(c3ccc(C(=O)NS(=O)(=O)c4ccc(NCC5CCOCC5)c([N+](=O)[O-])c4)c(Oc4cnc5[nH]ccc5c4)c3)CC2)=C(c2ccc(Cl)cc2)C1,0.0814,0
+82,ABT-737,CN(C)CC[C@H](CSc1ccccc1)Nc1ccc(S(=O)(=O)NC(=O)c2ccc(N3CCN(Cc4ccccc4-c4ccc(Cl)cc4)CC3)cc2)cc1[N+](=O)[O-],0.0209,1
+83,Gefitinib,COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1OCCCCCOCCOCCC(=O)N[C@H](C(=O)N1C[C@H](O)C[C@H]1C(=O)NCc1ccc(-c2scnc2C)cc1)C(C)(C)C,0.2537,0
+84,NPS-2143,CC(C)(CC1=CC2=CC=CC=C2C=C1)NCC(COC3=C(C(=CC=C3)Cl)C#N)O,0.2923,0
+85,KC7F2,O=S(=O)(NCCSSCCNS(=O)(=O)c1cc(Cl)ccc1Cl)c1cc(Cl)ccc1Cl,0.7174,0
+86,TPCA-1,NC(=O)Nc1sc(-c2ccc(F)cc2)cc1C(N)=O,0.3764,0
+87,LW 6,CCN1CCN(Cc2ccc(NC(=O)c3ccc(C)c(NC(=O)c4cncc(-c5cccs5)c4)c3)cc2C(F)(F)F)CC1,0.7845,0
+88,QNZ,Nc1ccc2ncnc(NCCc3ccc(Oc4ccccc4)cc3)c2c1,0.6067,0
+89,BI-D1870,CC(C)CCN1c2nc(Nc3cc(F)c(O)c(F)c3)ncc2N(C)C(=O)C1C,0.7721,0
+90,Deferoxamine mesylate,CC(=O)N(O)CCCCCNC(=O)CCC(=O)N(O)CCCCCNC(=O)CCC(=O)N(O)CCCCCN.CS(=O)(=O)O,0.5464,0
+91,Betulinic acid ,C=C(C)[C@@H]1CC[C@]2(C(=O)O)CC[C@]3(C)[C@H](CC[C@@H]4[C@@]5(C)CC[C@H](O)C(C)(C)[C@@H]5CC[C@]43C)[C@@H]12,0.5357,0
+92,GSK2795039,CC(C)n1cc(-c2ccc3c(c2)N(C)CC3)c2c(NS(=O)(=O)c3ccn(C)n3)ccnc21,0.8281,0
+93,Daprodustat (GSK1278863),O=C(O)CNC(=O)C1C(=O)N(C2CCCCC2)C(=O)N(C2CCCCC2)C1=O,0.3427,0
+94,Sulforaphane,CS(=O)CCCCN=C=S,0.3149,0
+95,BAY 87-2243,Cc1cc(-c2nc(-c3ccc(OC(F)(F)F)cc3)no2)nn1Cc1ccnc(N2CCN(C3CC3)CC2)c1,0.59,0
+96,Alisertib (MLN8237),COc1cc(Nc2ncc3c(n2)-c2ccc(Cl)cc2C(c2c(F)cccc2OC)=NC3)ccc1C(=O)O,0.0124,1
+97,Setanaxib (GKT137831),CN(C)c1cccc(-c2c3c(=O)n(-c4ccccc4Cl)[nH]c3cc(=O)n2C)c1,0.3111,0
+98,Molidustat (BAY 85-3934),O=c1c(-n2ccnn2)c[nH]n1-c1cc(N2CCOCC2)ncn1,0.1719,0
+99,"Tozasertib (VX-680, MK-0457)",CC1=CC(=NN1)NC2=CC(=NC(=N2)SC3=CC=C(C=C3)NC(=O)C4CC4)N5CCN(CC5)C,0.0391,1
+100,NCT-501,CC(C)CCn1c(CN2CCN(C(=O)C3CC3)CC2)nc2c1c(=O)n(C)c(=O)n2C,0.7416,0
+101,PX-478 2HCl,Cl.Cl.N[C@@H](Cc1ccc([N+]([O-])(CCCl)CCCl)cc1)C(=O)O,0.3852,0
+102,Capmatinib (INCB28060),CNC(=O)c1ccc(-c2cnc3ncc(Cc4ccc5ncccc5c4)n3n2)cc1F,0.8785,0
+103,Daidzin,O=c1c(-c2ccc(O)cc2)coc2cc(O[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)ccc12,0.8031,0
+104,Bardoxolone Methyl,COC(=O)C12CCC(C)(C)CC1C1C(=O)C=C3C4(C)C=C(C#N)C(=O)C(C)(C)C4CCC3(C)C1(C)CC2,0.0257,1
+105,LGK-974,CC1=CC(=CN=C1C2=CC(=NC=C2)C)CC(=O)NC3=NC=C(C=C3)C4=NC=CN=C4,0.1458,0
+106,RSL3,COC(=O)c1ccc([C@H]2c3[nH]c4ccccc4c3C[C@H](C(=O)OC)N2C(=O)CCl)cc1,<0.0001,1
+107,FINO2,CC1(CCO)C[C@]2(CC[C@H](C(C)(C)C)CC2)OO1,0.0013,1
+108,ML162,COC1=C(C=C(C=C1)N(C(C2=CC=CS2)C(=O)NCCC3=CC=CC=C3)C(=O)CCl)Cl,<0.0001,1
+109,Plinabulin(NPI-2358),CC(C)(C)c1nc[nH]c1/C=c1\[nH]c(=O)/c(=C/c2ccccc2)[nH]c1=O,0.9295,0
+110,SB273005,CNC1=CC=CC(=N1)CCOC2=CC3=C(CC(C(=O)N(C3)CC(F)(F)F)CC(=O)O)C=C2,0.5464,0
+111,Mdivi-1,COC1=C(C=C(C(=C1)N2C(=O)C3=CC=CC=C3NC2=S)Cl)Cl,0.9295,0
+112,WZ811,c1ccc(NCc2ccc(CNc3ccccn3)cc2)nc1,0.6876,0
+113,Cenicriviroc(TAK-652),CCCCOCCOc1ccc(-c2ccc3c(c2)/C=C(/C(=O)Nc2ccc([S@@](=O)Cc4cncn4CCC)cc2)CCCN3CC(C)C)cc1,0.664,0
+114,Lexibulin(CYT997),CCC[C@H](Nc1nc(-c2ccc(NC(=O)NCC)c(OC)c2)ncc1C)c1cccnc1,0.6758,0
+115,ATN-161(Ac-PHSCN-NH2),CC(=O)N1CCCC1C(=O)NC(CC2=CN=CN2)C(=O)NC(CO)C(=O)NC(CS)C(=O)NC(CC(=O)N)C(=O)N,0.7537,0
+116,Mitochondrial Fusion Promoter M1,CC(=NNc1c(Cl)cc(Cl)cc1Cl)c1cc(Cl)ccc1O,0.2604,0
+117,Plerixafor(AMD3100),c1cc(CN2CCCNCCNCCCNCC2)ccc1CN1CCCNCCNCCCNCC1,0.6294,0
+118,Ispinesib (SB-715992),Cc1ccc(C(=O)N(CCCN)[C@@H](c2nc3cc(Cl)ccc3c(=O)n2Cc2ccccc2)C(C)C)cc1,0.8976,0
+119,A-205804,Cc1ccc(Sc2cncc3sc(C(N)=O)cc23)cc1,0.2673,0
+120,Leflunomide,Cc1oncc1C(=O)Nc1ccc(C(F)(F)F)cc1,0.1047,0
+121,Linifanib(ABT-869),Cc1ccc(F)c(NC(=O)Nc2ccc(-c3cccc4[nH]nc(N)c34)cc2)c1,0.3188,0
+122,SB743921 HCl,CC1=CC=C(C=C1)C(=O)N(CCCN)C(C2=C(C(=O)C3=C(O2)C=C(C=C3)Cl)CC4=CC=CC=C4)C(C)C.Cl,0.6699,0
+123,CM10,C=CCc1cccc(CNc2nc3ccccc3n2CCC)c1O,0.4892,0
+124,Patupilone(EpothiloneB),CC1CCCC2(C(O2)CC(OC(=O)CC(C(C(=O)C(C1O)C)(C)C)O)C(=CC3=CSC(=N3)C)C)C,0.8218,0
+125,Saracatinib(AZD0530),CN1CCN(CCOc2cc(OC3CCOCC3)c3c(Nc4c(Cl)ccc5c4OCO5)ncnc3c2)CC1,0.1796,0
+126,CCCP,N#CC(C#N)=NNc1cccc(Cl)c1,0.2997,0
+127,Pexidartinib(PLX3397),FC(F)(F)c1ccc(CNc2ccc(Cc3c[nH]c4ncc(Cl)cc34)cn2)cn1,0.3896,0
+128,Reparixin (Repertaxin),CC(C)Cc1ccc([C@@H](C)C(=O)NS(C)(=O)=O)cc1,0.7537,0
+129,Chloroquine,O=P(=O)OO.O=P(=O)OO.[2H]C([2H])([2H])C([2H])([2H])N(CC)CCCC(C)Nc1ccnc2cc(Cl)ccc12.[HH].[HH],0.7174,0
+130,KX2-391(Tirbanibulin),O=C(Cc1ccc(-c2ccc(OCCN3CCOCC3)cc2)cn1)NCc1ccccc1,0.1481,0
+131,Tiplaxtinin,C1=CC=C(C=C1)CN2C=C(C3=C2C=CC(=C3)C4=CC=C(C=C4)OC(F)(F)F)C(=O)C(=O)O,0.1309,0
+132,Azaindole 1 (TC-S 7001),Cc1c[nH]c2nccc(Oc3c(F)cc(Nc4cc(Cl)nc(N)n4)cc3F)c12,0.7907,0
+133,Linifanib(ABT-869),Cc1ccc(F)c(NC(=O)Nc2ccc(-c3cccc4[nH]nc(N)c34)cc2)c1,0.8659,0
+134,Defactinib(VS-6063),CNC(=O)c1ccc(Nc2ncc(C(F)(F)F)c(NCc3nccnc3N(C)S(C)(=O)=O)n2)cc1,0.3072,0
+135,Dasatinib(BMS-354825),Cc1nc(Nc2ncc(C(=O)Nc3c(C)cccc3Cl)s2)cc(N2CCN(CCO)CC2)n1,0.4545,0
+136,Dynasore,O=C(N/N=C/c1ccc(O)c(O)c1)c1cc2ccccc2cc1O,0.3636,0
+137,MBQ-167,CCn1c2ccccc2c2cc(-n3nncc3-c3ccccc3)ccc21,0.257,0
+138,GSK429286A,CC1=C(C(=O)Nc2cc3cn[nH]c3cc2F)C(c2ccc(C(F)(F)F)cc2)CC(=O)N1,0.7845,0
+139,PND-1186(VS-4718),CNC(=O)C1=CC=CC=C1NC2=CC(=NC=C2C(F)(F)F)NC3=C(C=C(C=C3)N4CCOCC4)OC,0.0188,1
+140,ML-7 HCl,NS(=O)(=O)OC[C@H]1C[C@@H](Nc2ncncc2C(=O)c2ccn(Cc3cccc(Br)c3)n2)C[C@@H]1O,0.1875,0
+141,Danirixin(GSK1325756),Cc1c(F)cccc1NC(=O)Nc1ccc(Cl)c(S(=O)(=O)[C@H]2CCCNC2)c1O,0.2537,0
+142,Rhosin hydrochloride,Cl.N[C@H](Cc1c[nH]c2ccccc12)C(=O)N/N=C/c1ccc2nccnc2c1,0.1229,0
+143,FRAX597,CCn1c(=O)c(-c2ccc(-c3cncs3)cc2Cl)cc2cnc(Nc3ccc(N4CCN(C)CC4)cc3)nc21,0.6351,0
+144,Benznidazole,O=C(Cn1ccnc1[N+](=O)[O-])NCc1ccccc1,0.8031,0
+145,Cilengitide,CC(C)[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)NCC(=O)N[C@@H](CC(=O)O)C(=O)N[C@H](Cc2ccccc2)C(=O)N1C.O=C(O)C(F)(F)F,0.9743,0
+146,Fasudil(HA-1077) HCl,Cl.Cl.O=S(=O)(c1cccc2cnccc12)N1CCCNCC1,0.904,0
+147,Aprepitant(MK-0869),C[C@@H](O[C@H]1OCCN(Cc2nc(=O)[nH][nH]2)[C@H]1c1ccc(F)cc1)c1cc(C(F)(F)F)cc(C(F)(F)F)c1,0.8031,0
+148,R243,C1C2CC3CC1CC(C2)(C3)OCCN4CC5=CC6=C(C=C5OC4)OCO6,0.9872,0
+149,PF-3758309,Cc1nc(Nc2n[nH]c3c2CN(C(=O)N[C@H](CN(C)C)c2ccccc2)C3(C)C)c2sccc2n1,0.4121,0
+150,IKE,CC(C)C[C@@H](NC(=O)[C@@H](Cc1ccccc1)NC(=O)[C@H](N)Cc1ccccc1)C(=O)N[C@H](CCCCN)C(=O)N1CCC(N)(C(=O)O)CC1.O=C(O)C(F)(F)F,0.0138,1
+151,ML210,CC1=C(C(=NO1)C(=O)N2CCN(CC2)C(C3=CC=C(C=C3)Cl)C4=CC=C(C=C4)Cl)[N+](=O)[O-],0.0047,1
+152,Dasatinib,Cc1nc(Nc2ncc(C(=O)Nc3c(C)cccc3Cl)s2)cc(N2CCN(CCO)CC2)n1,0.3231,0
+153,Quercitrin,C[C@@H]1O[C@@H](Oc2c(-c3ccc(O)c(O)c3)oc3cc(O)cc(O)c3c2=O)[C@H](O)[C@H](O)[C@H]1O,0.2534,0
+154,Fisetin,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)ccc12,0.1851,0
+155,Procyanidin C1,Oc1cc(O)c2c(c1)O[C@H](c1ccc(O)c(O)c1)[C@H](O)[C@H]2c1c(O)cc(O)c2c1O[C@H](c1ccc(O)c(O)c1)[C@H](O)[C@H]2c1c(O)cc(O)c2c1O[C@H](c1ccc(O)c(O)c1)[C@H](O)C2,0.4222,0
+156,CAY10603,CC(C)(C)OC(=O)Nc1ccc(-c2cc(C(=O)NCCCCCCC(=O)NO)no2)cc1,0.1409,0
+157,Tubastatin A,CN1CCc2c(c3ccccc3n2Cc2ccc(C(=O)NO)cc2)C1,0.2313,0
+158,Thiostrepton,C=C(NC(=O)C(=C)NC(=O)c1csc(C2=N[C@@H]3c4csc(n4)[C@H]4NC(=O)c5csc(n5)[C@H]([C@](C)(O)[C@@H](C)O)NC(=O)[C@H]5CSC(=N5)/C(=C/C)NC(=O)[C@H]([C@@H](C)O)NC(=O)c5csc(n5)[C@]3(CC2)NC(=O)[C@H](C)NC(=O)C(=C)NC(=O)[C@H](C)NC(=O)[C@H]([C@@H](C)CC)N[C@@H]2C=Cc3c([C@H](C)O)cc(nc3[C@H]2O)C(=O)O[C@@H]4C)n1)C(N)=O,<0.0001,1
+159,BI-6727,CCC1C(=O)N(C2=CN=C(N=C2N1C(C)C)NC3=C(C=C(C=C3)C(=O)NC4CCC(CC4)N5CCN(CC5)CC6CC6)OC)C,0.8278,0
+160,Apcin,Cc1ncc([N+](=O)[O-])n1CCOC(=O)NC(Nc1ncccn1)C(Cl)(Cl)Cl,0.8292,0
+161,M2I-1,CC(C)CN(CC(C)C)c1ccc(C=C2C(=O)NC(=S)NC2=O)cc1[N+](=O)[O-],0.465,0
+162,CUDC-101,C#Cc1cccc(Nc2ncnc3cc(OC)c(OCCCCCCC(=O)NO)cc23)c1,0.2838,0
+163,Belinostat,O=C(/C=C/c1cccc(S(=O)(=O)Nc2ccccc2)c1)NO,0.1383,0
+164,Neratinib,CCOc1cc2ncc(C#N)c(Nc3ccc(OCc4ccccn4)c(Cl)c3)c2cc1NC(=O)/C=C/CN(C)C,0.5906,0
