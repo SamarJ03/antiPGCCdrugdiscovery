@@ -1,0 +1,3 @@
+[submodule "LLM4SD_base"]
+	path = LLM4SD_base
+	url = https://github.com/zyzisastudyreallyhardguy/LLM4SD.git

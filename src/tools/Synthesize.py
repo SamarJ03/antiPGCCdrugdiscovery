@@ -8,10 +8,7 @@ from Inference import get_token_limit
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, BitsAndBytesConfig
 from transformers import LlamaTokenizer, LlamaForCausalLM
 
-class Synthesize:
-    def __init__(self, args):
-        self.args = args
-
+class Synthesizer:
     def get_hf_tokenizer_pipeline(model, is_8bit=False):
         model = model.lower()
         if model == 'falcon-7b':
@@ -56,27 +53,30 @@ class Synthesize:
             pipeline = model
         return tokenizer, pipeline
 
-    def get_synthesize_prompt():
-        prompt_file = os.path.join(args.input_folder, args.input_file)
+    def get_synthesize_prompt(self):
+        """
+        Read prompt json file to load prompt for the task, return a task name list and a prompt list
+        """
+        args = self.args
+        prompt_file = os.path.join(args['input_folder'], args['input_file'])
         pk_prompt_list = []
         task_list = []
         with open(prompt_file, 'r') as f:
             prompt_dict = json.load(f)
-
-        # CHANGED: model-based prompt length selection
-        model_name = args.model.lower()
-        dataset_key = args.dataset + "_small" if model_name in ["falcon-7b", "galactica-6.7b", "chemllm-7b", "chemdfm"] else args.dataset + "_big"
-
-        print(f'Extracting {dataset_key} dataset prior knowledge prompt ....')
-        if not args.subtask:
-            task_list.append(args.dataset)
-            pk_prompt_list.append(prompt_dict[dataset_key])
-        elif args.subtask:
-            print(f"Extracting {args.subtask} task prior knowledge prompt ....")
-            task_list.append(args.dataset + "_" + args.subtask )
-            pk_prompt_list.append(prompt_dict[dataset_key][args.subtask])
+        if args['model'].lower() in ["falcon-7b", "galactica-6.7b", "chemllm-7b", "chemdfm"]:
+            dataset_key = args['dataset'] + "_small"
         else:
-            raise NotImplementedError(f"""No prior knowledge prompt for task {args.dataset}.""")
+            dataset_key = args['dataset'] + "_big"
+        print(f'Extracting {dataset_key} dataset prior knowledge prompt ....')
+        if not args['subtask']:
+            task_list.append(args['dataset'])
+            pk_prompt_list.append(prompt_dict[dataset_key])
+        elif args['subtask']:  # for tox21 and sider
+            print(f"Extracting {args['subtask']} task prior knowledge prompt ....")
+            task_list.append(args['dataset'] + "_" + args['subtask'] )
+            pk_prompt_list.append(prompt_dict[dataset_key][args['subtask']])
+        else:
+            raise NotImplementedError(f"""No prior knowledge prompt for task {args['dataset']}.""")
         return task_list, pk_prompt_list
 
     def get_pk_model_response(model, tokenizer, pipeline, pk_prompt_list):
@@ -146,15 +146,17 @@ class Synthesize:
         return response_list
 
     def run(self):
-        tokenizer, pipeline = self.get_hf_tokenizer_pipeline(args.model)
+        start = time.time()
+        args = self.args
+        tokenizer, pipeline = self.get_hf_tokenizer_pipeline(args['model'])
         task_list, pk_prompt_list = self.get_synthesize_prompt()
-        response_list = self.get_pk_model_response(args.model, tokenizer, pipeline, pk_prompt_list)
-        output_file_folder = os.path.join(args.output_folder, args.model, args.dataset)
-        if args.subtask != '':
-            subtask_name = "_" + args.subtask
+        response_list = self.get_pk_model_response(args['model'], tokenizer, pipeline, pk_prompt_list)
+        output_file_folder = os.path.join(args['output_folder'], args['model'], args['dataset'])
+        if args['subtask'] != '':
+            subtask_name = "_" + args['subtask']
         else:
             subtask_name = ''
-        output_file = os.path.join(output_file_folder, f'{args.model}{subtask_name}_pk_response.txt')
+        output_file = os.path.join(output_file_folder, f'{args['model']}{subtask_name}_pk_response.txt')
         if not os.path.exists(output_file_folder):
             os.makedirs(output_file_folder)
         with open(output_file, 'w') as f:
@@ -163,20 +165,36 @@ class Synthesize:
                 f.write('Response from model: \n')
                 f.write(response_list[i])
                 f.write("\n\n================================\n\n")
+        end = time.time()
+        print(f"Synthesize/Time elapsed: {end-start} seconds")
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='pgcc', help='dataset/task name')
-    parser.add_argument('--subtask', type=str, default='', help='subtask of rdkit dataset')
-    parser.add_argument('--model', type=str, default='galactica-6.7b', help='LLM model name')
-    parser.add_argument('--input_folder', type=str, default='prompt_file', help='Synthesize prompt file folder')
-    parser.add_argument('--input_file', type=str, default='synthesize_prompt.json', help='synthesize prompt json file')
-    parser.add_argument('--output_folder', type=str, default='synthesize_model_response', help='Synthesize output folder')
-    
-    args = parser.parse_args()
-    synthesizer = Synthesize(args)
-
-    start = time.time()
-    synthesizer.run()
-    end = time.time()
-    print(f"Synthesize/Time elapsed: {end-start} seconds")
+    def __init__(self, args=None, dataset=None, subtask=None, model=None):
+        if args is None: 
+            parser = argparse.ArgumentParser()
+            parser.add_argument('--dataset', type=str, default='metaFingerprints', help='dataset/task name')
+            parser.add_argument('--subtask', type=str, default='', help='subtask of rdkit dataset')
+            parser.add_argument('--model', type=str, default='chemfdm', help='LLM model name')
+            parser.add_argument('--input_folder', type=str, default='prompt_file', help='Synthesize prompt file folder')
+            parser.add_argument('--input_file', type=str, default='synthesize_prompt.json', help='synthesize prompt json file')
+            parser.add_argument('--output_folder', type=str, default='synthesize_model_response', help='Synthesize output folder')
+            args = parser.parse_args()
+        if isinstance(args, argparse.Namespace): args = vars(args)
+        if isinstance(args, dict): 
+            if model is None: args['model'] = 'chemfdm'
+            elif model not in ('chemfdm', 'chemllm-7b', 'falcon-7b', 'falcon-40b', 'galactica-6.7b', 'galactica-30b'):
+                raise Exception('Invalid model..')
+            
+            if dataset not in ('ecfp4', 'maccs', 'metaFingerprints', 'rdkit'): 
+                raise Exception('Invalid dataset..')
+            else: args['dataset'] = dataset
+            
+            if dataset=='rdkit' and subtask is None: subtask = 'all'
+            elif dataset=='rdkit' and subtask not in (
+                'all', 'E-State', 'fingerprintBased', 'functionalGroup', 'molecularTopology',
+                'physiochemical', 'structural', 'surfaceArea'
+            ): raise Exception('Invalid rdkit subtask..')
+            elif dataset!='rdkit' and subtask is not None: 
+                print('!! subtask only valid for rdkit dataset..')
+                subtask = None
+            args['subtask'] = subtask
+        self.args = args
