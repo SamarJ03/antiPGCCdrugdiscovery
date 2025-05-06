@@ -36,7 +36,7 @@ class Synthesizer:
                                                             device_map="auto", trust_remote_code=True)
             tokenizer = AutoTokenizer.from_pretrained(hf_model,trust_remote_code=True)
         elif model == "chemdfm":
-            cache = os.path.join(os.getcwd(),'tools', 'otherCache')
+            cache = os.path.join(os.getcwd(),'tools', 'cache')
             os.makedirs(cache, exist_ok=True)
             offload_dir = os.path.join(cache, 'offload')
             os.makedirs(offload_dir, exist_ok=True)
@@ -115,6 +115,7 @@ class Synthesizer:
                     outputs = pipeline.generate(**inputs, generation_config=generation_config)
                     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
                 elif model in ["chemdfm"]:
+                    
                     # inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
 
                     device = "cuda" if torch.cuda.is_available() else "cpu"

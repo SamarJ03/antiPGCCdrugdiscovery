@@ -241,35 +241,35 @@ class Inferencer:
                 f.write(response)
                 f.write("nn================================nn")
 
-        def __init__(self, args=None, dataset=None, subtask=None, model=None):
-            if args is None: 
-                parser = argparse.ArgumentParser()
-                parser.add_argument('--prompt_folder', type=str, default='prompt_file', help='Prompt file folder')
-                parser.add_argument('--prompt_file', type=str, default='inference_prompt.json', help='Inference prompt json file')
-                parser.add_argument('--input_folder', type=str, default='scaffold_datasets', help="load training dataset")
-                parser.add_argument('--output_folder', type=str, default='inference_model_response')
-                parser.add_argument('--dataset', type=str, default='fingerprints', help='dataset name')
-                parser.add_argument('--subtask', type=str, default='', help='subtask of rdkit dataset')
-                parser.add_argument('--list_num', type=int, default=30, help='number of lists for model inference')
-                parser.add_argument('--model', type=str, default="chemdfm", help='model for data knowledge') # chemllm-7b/chemdfm??
-                args = parser.parse_args()
-            if isinstance(args, argparse.Namespace): args = vars(args)
-            if isinstance(args, dict): 
-                if model is None: args['model'] = 'chemfdm'
-                elif model not in ('chemfdm', 'chemllm-7b', 'falcon-7b', 'falcon-40b', 'galactica-6.7b', 'galactica-30b'):
-                    raise Exception('Invalid model..')
-                
-                if dataset not in ('ecfp4', 'maccs', 'metaFingerprints', 'rdkit'): 
-                    raise Exception('Invalid dataset..')
-                else: args['dataset'] = dataset
-                
-                if dataset=='rdkit' and subtask is None: subtask = 'all'
-                elif dataset=='rdkit' and subtask not in (
-                    'all', 'E-State', 'fingerprintBased', 'functionalGroup', 'molecularTopology',
-                    'physiochemical', 'structural', 'surfaceArea'
-                ): raise Exception('Invalid rdkit subtask..')
-                elif dataset!='rdkit' and subtask is not None: 
-                    print('!! subtask only valid for rdkit dataset..')
-                    subtask = None
-                args['subtask'] = subtask
-            self.args = args
+    def __init__(self, args=None, dataset=None, subtask=None, model=None):
+        if args is None: 
+            parser = argparse.ArgumentParser()
+            parser.add_argument('--prompt_folder', type=str, default='prompt_file', help='Prompt file folder')
+            parser.add_argument('--prompt_file', type=str, default='inference_prompt.json', help='Inference prompt json file')
+            parser.add_argument('--input_folder', type=str, default='scaffold_datasets', help="load training dataset")
+            parser.add_argument('--output_folder', type=str, default='inference_model_response')
+            parser.add_argument('--dataset', type=str, default='fingerprints', help='dataset name')
+            parser.add_argument('--subtask', type=str, default='', help='subtask of rdkit dataset')
+            parser.add_argument('--list_num', type=int, default=30, help='number of lists for model inference')
+            parser.add_argument('--model', type=str, default="chemdfm", help='model for data knowledge') # chemllm-7b/chemdfm??
+            args = parser.parse_args()
+        if isinstance(args, argparse.Namespace): args = vars(args)
+        if isinstance(args, dict): 
+            if model is None: args['model'] = 'chemfdm'
+            elif model not in ('chemfdm', 'chemllm-7b', 'falcon-7b', 'falcon-40b', 'galactica-6.7b', 'galactica-30b'):
+                raise Exception('Invalid model..')
+            
+            if dataset not in ('ecfp4', 'maccs', 'metaFingerprints', 'rdkit'): 
+                raise Exception('Invalid dataset..')
+            else: args['dataset'] = dataset
+            
+            if dataset=='rdkit' and subtask is None: subtask = 'all'
+            elif dataset=='rdkit' and subtask not in (
+                'all', 'E-State', 'fingerprintBased', 'functionalGroup', 'molecularTopology',
+                'physiochemical', 'structural', 'surfaceArea'
+            ): raise Exception('Invalid rdkit subtask..')
+            elif dataset!='rdkit' and subtask is not None: 
+                print('!! subtask only valid for rdkit dataset..')
+                subtask = None
+            args['subtask'] = subtask
+        self.args = args
