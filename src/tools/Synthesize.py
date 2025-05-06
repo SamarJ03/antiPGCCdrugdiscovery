@@ -1,15 +1,15 @@
+import sys
 import argparse
 import os
 import json
 import time
 import torch
 import transformers
-from Inference import get_token_limit
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, BitsAndBytesConfig
 from transformers import LlamaTokenizer, LlamaForCausalLM
 
 class Synthesizer:
-    def get_hf_tokenizer_pipeline(model, is_8bit=False):
+    def get_hf_tokenizer_pipeline(self, model, is_8bit=False):
         model = model.lower()
         if model == 'falcon-7b':
             hf_model = "tiiuae/falcon-7b-instruct"
@@ -36,8 +36,12 @@ class Synthesizer:
                                                             device_map="auto", trust_remote_code=True)
             tokenizer = AutoTokenizer.from_pretrained(hf_model,trust_remote_code=True)
         elif model == "chemdfm":
+            cache = os.path.join(os.getcwd(),'tools', 'otherCache')
+            os.makedirs(cache, exist_ok=True)
+            offload_dir = os.path.join(cache, 'offload')
+            os.makedirs(offload_dir, exist_ok=True)
             tokenizer = LlamaTokenizer.from_pretrained(hf_model)
-            pipeline = LlamaForCausalLM.from_pretrained(hf_model, torch_dtype=torch.float16, device_map="auto")
+            pipeline = LlamaForCausalLM.from_pretrained(hf_model, torch_dtype=torch.float16, device_map="auto", offload_folder=offload_dir)
         else:
             model_kwargs['quantization_config'] = quantization_config
             tokenizer = AutoTokenizer.from_pretrained(hf_model, use_fast=False, padding_side="left", trust_remote_code=True)
@@ -48,7 +52,7 @@ class Synthesizer:
                                                 device_map="auto", 
                                                 trust_remote_code=True,
                                                 offload_folder=offload_dir,
-                                                quantization_config=quantization_config,
+                                                # quantization_config=quantization_config,
                                                 **model_kwargs)
             pipeline = model
         return tokenizer, pipeline
@@ -79,7 +83,7 @@ class Synthesizer:
             raise NotImplementedError(f"""No prior knowledge prompt for task {args['dataset']}.""")
         return task_list, pk_prompt_list
 
-    def get_pk_model_response(model, tokenizer, pipeline, pk_prompt_list):
+    def get_pk_model_response(self, model, tokenizer, pipeline, pk_prompt_list):
         model = model.lower()
         if model in ["galactica-6.7b", "galactica-30b", "chemllm-7b"]:
             system_prompt = ("Below is an instruction that describes a task. "
@@ -97,7 +101,7 @@ class Synthesizer:
                 input_text = system_prompt.format_map({'instruction': pk_prompt.strip()})
                 len_input_text = len(tokenizer.tokenize(input_text))
                 print(input_text)
-                max_new_token = get_token_limit(model, for_response=True) - len_input_text
+                max_new_token = self.get_token_limit(model, for_response=True) - len_input_text
                 if model in ['chemllm-7b']:
                     inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
                     generation_config = GenerationConfig(
@@ -111,7 +115,11 @@ class Synthesizer:
                     outputs = pipeline.generate(**inputs, generation_config=generation_config)
                     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
                 elif model in ["chemdfm"]:
-                    inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
+                    # inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
+
+                    device = "cuda" if torch.cuda.is_available() else "cpu"
+                    inputs = tokenizer(input_text, return_tensors="pt").to(device)
+
                     generation_config = GenerationConfig(
                                         do_sample=True,
                                         top_k=20,
@@ -144,6 +152,24 @@ class Synthesizer:
         else:
             raise NotImplementedError(f"""get_model_response() is not implemented for model {model}.""")
         return response_list
+    
+    @staticmethod
+    def get_token_limit(model, for_response=False):
+        """Returns the token limitation of provided model"""
+        model = model.lower()
+        if for_response:  # For get response
+            if model in ['falcon-7b', 'falcon-40b', "galactica-6.7b", "galactica-30b", "chemdfm"]:
+                num_tokens_limit = 2048
+            elif model in ['chemllm-7b']:
+                num_tokens_limit = 4096
+        else:  # For split input list
+            if model in ['falcon-7b', 'falcon-40b', "galactica-6.7b", "galactica-30b", "chemdfm"]:
+                num_tokens_limit = round(2048*3/4)  # 1/4 part for the response, 512 tokens
+            elif model in ['chemllm-7b']:
+                num_tokens_limit = round(4096*3/4)
+            else:
+                raise NotImplementedError(f"""get_token_limit() is not implemented for model {model}.""")
+        return num_tokens_limit
 
     def run(self):
         start = time.time()
@@ -156,7 +182,7 @@ class Synthesizer:
             subtask_name = "_" + args['subtask']
         else:
             subtask_name = ''
-        output_file = os.path.join(output_file_folder, f'{args['model']}{subtask_name}_pk_response.txt')
+        output_file = os.path.join(output_file_folder, f'{args["model"]}{subtask_name}_pk_response.txt')
         if not os.path.exists(output_file_folder):
             os.makedirs(output_file_folder)
         with open(output_file, 'w') as f:
@@ -168,21 +194,22 @@ class Synthesizer:
         end = time.time()
         print(f"Synthesize/Time elapsed: {end-start} seconds")
 
-    def __init__(self, args=None, dataset=None, subtask=None, model=None):
+    def __init__(self, args, dataset=None, subtask=None, model=None):
         if args is None: 
             parser = argparse.ArgumentParser()
             parser.add_argument('--dataset', type=str, default='metaFingerprints', help='dataset/task name')
             parser.add_argument('--subtask', type=str, default='', help='subtask of rdkit dataset')
-            parser.add_argument('--model', type=str, default='chemfdm', help='LLM model name')
+            parser.add_argument('--model', type=str, default='chemdfm', help='LLM model name')
             parser.add_argument('--input_folder', type=str, default='prompt_file', help='Synthesize prompt file folder')
             parser.add_argument('--input_file', type=str, default='synthesize_prompt.json', help='synthesize prompt json file')
             parser.add_argument('--output_folder', type=str, default='synthesize_model_response', help='Synthesize output folder')
             args = parser.parse_args()
         if isinstance(args, argparse.Namespace): args = vars(args)
         if isinstance(args, dict): 
-            if model is None: args['model'] = 'chemfdm'
-            elif model not in ('chemfdm', 'chemllm-7b', 'falcon-7b', 'falcon-40b', 'galactica-6.7b', 'galactica-30b'):
+            if model is None: args['model'] = 'chemdfm'
+            elif model not in ('chemdfm', 'chemllm-7b', 'falcon-7b', 'falcon-40b', 'galactica-6.7b', 'galactica-30b'):
                 raise Exception('Invalid model..')
+            else: args['model'] = model
             
             if dataset not in ('ecfp4', 'maccs', 'metaFingerprints', 'rdkit'): 
                 raise Exception('Invalid dataset..')
@@ -197,4 +224,7 @@ class Synthesizer:
                 print('!! subtask only valid for rdkit dataset..')
                 subtask = None
             args['subtask'] = subtask
+
         self.args = args
+
+        # print(args)
